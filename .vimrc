@@ -1,5 +1,11 @@
 set number
 filetype on
+set tabstop=3
+set shiftwidth=3
+set expandtab
+
+let &scrolloff=999-&scrolloff
+
 let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 50
 autocmd VimEnter * NERDTree
