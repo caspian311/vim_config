@@ -11,6 +11,9 @@ let Tlist_WinWidth = 50
 autocmd VimEnter * NERDTree
 autocmd VimEnter * TlistToggle
 
+map <C-R> :FufCoverageFile<CR>
+
+
 function! NERDTreeQuit()
   redir => buffersoutput
   silent buffers
