@@ -2,22 +2,33 @@ let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 50
 
 let &scrolloff=999-&scrolloff
+set tabstop=3
+filetype on
+set shiftwidth=3
+set expandtab
 
 function! DevSetup()
-   set number
-   filetype on
-   set tabstop=3
-   set shiftwidth=3
-   set expandtab
+	let g:in_dev_mode= exists('g:in_dev_mode') ? !g:in_dev_mode : 1
+   if g:in_dev_mode
+     set number
+     set hlsearch
 
-   :set hlsearch
+     NERDTree
+     TlistToggle
 
+     map <F4> :FufCoverageFile<CR>
+     map <F5> :shell<CR>
+   else
+     set nonumber
+     set nohlsearch
 
+     NERDTreeClose
+     TlistToggle
 
-   NERDTree
-   TlistToggle
+     unmap <F4>
+     unmap <F5>
+   endif
 
-   map <C-R> :FufCoverageFile<CR>
 endfunction
 
 map <F12> :call DevSetup()<CR>
