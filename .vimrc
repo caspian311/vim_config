@@ -1,6 +1,9 @@
 let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 50
 
+set cindent
+set smartindent
+set autoindent
 let &scrolloff=999-&scrolloff
 set tabstop=3
 filetype on
@@ -32,3 +35,5 @@ function! DevSetup()
 endfunction
 
 map <F12> :call DevSetup()<CR>
+
+
