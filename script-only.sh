@@ -1,25 +1,23 @@
 #!/bin/bash -e
 
-mkdir -p /tmp/vim-config-files
+TEMP_DIR=/tmp/vim_config_files
+rm -fR $TEMP_DIR
+mkdir -p $TEMP_DIR
 
 CUTLINE=`grep -an "END OF SCRIPT" $0 | grep -v grep | cut -d ":" -f 1`
 let "CUTLINE+=1"
-tail -n +$CUTLINE $0 > /tmp/vim-config-files/vim-config.tgz
+tail -n +$CUTLINE $0 > $TEMP_DIR/vim-config.tgz
 
-pushd ~/
-tar -czvf vim-config-bak.tgz .vim .vimrc
-popd
+DEST_DIR=~
+mkdir -p $DEST_DIR
+rm -f $DEST_DIR/.vim* $DEST_DIR/.tmux.conf
 
-DEST_DIR=/tmp/testing
-rm -fR /tmp/testing
-mkdir -p /tmp/testing
+pushd $TEMP_DIR &> /dev/null
+	tar -xzf vim-config.tgz
+	cp -R .vim .vimrc .tmux.conf $DEST_DIR
+popd &> /dev/null
 
-pushd /tmp/vim-config-files
-tar -xzf vim-config.tgz
-cp -R .vim .vimrc .tmux.conf $DEST_DIR
-popd
-
-rm -fR /tmp/vim-config-files
+rm -fR $TEMP_DIR
 
 exit 0
 #------ END OF SCRIPT --------

@@ -1,10 +1,10 @@
 
 create_script: 
 	tar czvf vim-config.tgz .vim .vimrc .tmux.conf
-	cat script-only.sh > install.sh
-	cat vim-config.tgz >> install.sh
+	cat script-only.sh > files.sh
+	cat vim-config.tgz >> files.sh
 
 clean:
-	rm -f install.sh vim-config.tgz
+	rm -f files.sh vim-config.tgz
 
 all: clean create_script
