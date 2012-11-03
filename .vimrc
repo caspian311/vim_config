@@ -9,6 +9,7 @@ set tabstop=3
 filetype on
 set shiftwidth=3
 set expandtab
+set mouse=a
 
 function! DevSetup()
 	let g:in_dev_mode= exists('g:in_dev_mode') ? !g:in_dev_mode : 1
