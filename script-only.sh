@@ -10,9 +10,13 @@ pushd ~/
 tar -czvf vim-config-bak.tgz .vim .vimrc
 popd
 
+DEST_DIR=/tmp/testing
+rm -fR /tmp/testing
+mkdir -p /tmp/testing
+
 pushd /tmp/vim-config-files
 tar -xzf vim-config.tgz
-cp -R .vim .vimrc ~/
+cp -R .vim .vimrc .tmux.conf $DEST_DIR
 popd
 
 rm -fR /tmp/vim-config-files
