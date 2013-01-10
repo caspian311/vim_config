@@ -12,27 +12,24 @@ set incsearch
 
 
 syntax on
-colorscheme vividchaulk
+colorscheme vividchalk
 
 set listchars=tab:>-,trail:·
 set list
 
+set number
+let NERDTreeIgnore = ['\.pyc$']
+map <F3> :FufRenewCache<CR>
+
+map <F4> :FufCoverageFile<CR>
+map <F5> :shell<CR>
+
 function! DevSetup()
 	let g:in_dev_mode= exists('g:in_dev_mode') ? !g:in_dev_mode : 1
    if g:in_dev_mode
-     set number
-
      NERDTree
-
-     map <F4> :FufCoverageFile<CR>
-     map <F5> :shell<CR>
    else
-     set nonumber
-
      NERDTreeClose
-
-     unmap <F4>
-     unmap <F5>
    endif
 
 endfunction
