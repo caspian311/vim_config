@@ -10,7 +10,7 @@ tail -n +$CUTLINE $0 > $TEMP_DIR/vim-config.tgz
 
 DEST_DIR=~
 mkdir -p $DEST_DIR
-rm -f $DEST_DIR/.vim* $DEST_DIR/.tmux.conf
+rm -fR $DEST_DIR/.vim* $DEST_DIR/.tmux.conf
 
 pushd $TEMP_DIR &> /dev/null
 	tar -xzf vim-config.tgz
