@@ -1,6 +1,6 @@
 
 create_script: 
-	tar czvf vim-config.tgz .vim .vimrc .tmux.conf
+	tar czvf vim-config.tgz .vim .vimrc .tmux.conf .gitconfig
 	cat script-only.sh > files.sh
 	cat vim-config.tgz >> files.sh
 

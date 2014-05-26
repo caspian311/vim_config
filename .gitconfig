@@ -1,0 +1,15 @@
+[user]
+	name = Matt Todd
+	email = matt.c.todd@gmail.com
+
+[color]
+   diff = auto
+   status = auto
+   branch = auto
+
+[Alias]
+   ci = commit
+   co = checkout
+   st = status -sb
+   br = branch
+
