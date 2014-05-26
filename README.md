@@ -27,7 +27,7 @@ This will create a *files.sh* in the top level. That file will need to be transf
 
     cp files.sh install.sh ..
     git checkout gh-pages
-    mv ../files.sh .
+    mv ../files.sh ../install.sh .
 
 Then you will need to commit and push the changes up to the remote.
     
