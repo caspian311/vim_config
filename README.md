@@ -1,4 +1,8 @@
-#VIM CONFIG#
+#¡¡¡OUTDATED!!!# 
+Do not use -- this has been chnaged fundamentally and will not work as described below... more to follow...
+
+
+##VIM CONFIG##
 
 The repository consists of two on-going branches: master and gh-pages. The configurations are maintained on master and gh-pages publishes changes to the [http://caspian.github.io/vim_config](http://caspian311.github.io/vim_config) site.
 
