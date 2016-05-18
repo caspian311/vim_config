@@ -1,10 +1,6 @@
 #!/bin/bash
 
-PS1='\h:\W \u\$ '
-# Make bash check its window size after a process completes
-shopt -s checkwinsize
-
-[ -r "/etc/bashrc_$TERM_PROGRAM" ] && . "/etc/bashrc_$TERM_PROGRAM"
+[ -f /etc/bashrc ] &&  source /etc/bashrc
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
@@ -29,7 +25,7 @@ function be() {
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-export PATH="./bin:$PATH" # give binstubs precedence over rbenv shims
+export PATH="./bin:$HOME/.rbenv/bin:$PATH"
 
 [ -f ~/.git_bash_prompt.bash ] &&  source ~/.git_bash_prompt.bash
 
