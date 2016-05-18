@@ -1,11 +1,25 @@
 [user]
-	name = Matt Todd
-	email = matt.c.todd@gmail.com
+   name = Matt Todd
+   email = matt.c.todd@gmail.com
 
 [color]
+   branch = auto
    diff = auto
    status = auto
-   branch = auto
+   ui = true
+[color "branch"]
+   current = yellow reverse
+   local = yellow
+   remote = green
+[color "diff"]
+   meta = yellow bold
+   frag = magenta bold
+   old = red bold
+   new = green bold
+[color "status"]
+   added = yellow
+   changed = green
+   untracked = cyan
 
 [Alias]
    ci = commit
@@ -13,3 +27,5 @@
    st = status -sb
    br = branch
 
+[core]
+   excludesfile = /Users/mtodd/.gitignore

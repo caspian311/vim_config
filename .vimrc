@@ -60,3 +60,8 @@ map <Leader>a :call RunAllSpecs()<CR>
 map <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <BS> :nohlsearch<CR>
 
+if has("gui_macvim")
+  let g:rspec_runner = "os_x_iterm"
+  let g:rspec_command = "bundle exec rspec {spec}"
+endif
+
