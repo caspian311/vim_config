@@ -32,7 +32,7 @@ set cindent
 set smartindent
 set autoindent
 set tabstop=2
-set shiftwidth=3
+set shiftwidth=2
 set expandtab
 set smarttab
 set mouse=a
@@ -43,6 +43,7 @@ set numberwidth=4
 set splitright
 set backspace=indent,eol,start
 set noswapfile
+set ignorecase
 
 " set visual bell to nothing
 set vb
