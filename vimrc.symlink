@@ -67,3 +67,9 @@ if has("gui_macvim")
   let g:rspec_command = "bundle exec rspec {spec}"
 endif
 
+function! PrettyPrintJson()
+  :%!python -m json.tool
+endfunction
+
+map <Leader>j :call PrettyPrintJson()<CR>
+
