@@ -22,6 +22,10 @@ function be() {
    bundle exec $@
 }
 
+function bake() {
+   bundle exec rake $@
+}
+
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
