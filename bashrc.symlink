@@ -31,6 +31,8 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export PATH="./bin:$HOME/.rbenv/bin:$PATH"
 
+export EDITOR=$(which vim)
+
 [ -f ~/.git_bash_prompt.bash ] &&  source ~/.git_bash_prompt.bash
 
 
