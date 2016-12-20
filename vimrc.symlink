@@ -52,7 +52,10 @@ set t_vb=
 
 filetype on
 syntax on
+
 colorscheme vividchalk
+hi Search guibg=peru guifg=wheat
+
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
