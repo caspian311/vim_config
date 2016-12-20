@@ -29,10 +29,11 @@ function bake() {
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-export PATH="./bin:$HOME/.rbenv/bin:$PATH"
+export ANDROID_BIN_PATH=$HOME/Library/Android/sdk/platform-tools
+export PATH="./bin:$HOME/.rbenv/bin:$ANDROID_BIN_PATH:$PATH"
 
 export EDITOR=$(which vim)
 
 [ -f ~/.git_bash_prompt.bash ] &&  source ~/.git_bash_prompt.bash
 
-
+export HOMEBREW_GITHUB_API_TOKEN=b0dac059935012f48bbc324b59de610d020505a6
