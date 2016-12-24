@@ -58,6 +58,8 @@ hi Search guibg=peru guifg=wheat
 
 let g:ctrlp_custom_ignore = 'node_modules'
 
+let &scrolloff=999-&scrolloff
+
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
