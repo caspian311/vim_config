@@ -36,4 +36,4 @@ export EDITOR=$(which vim)
 
 [ -f ~/.git_bash_prompt.bash ] &&  source ~/.git_bash_prompt.bash
 
-export HOMEBREW_GITHUB_API_TOKEN=b0dac059935012f48bbc324b59de610d020505a6
+[ -f ~/.bashrc.secrets ] &&  source ~/.bashrc.secrets

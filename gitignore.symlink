@@ -2,3 +2,4 @@
 vim-config.tgz
 files.sh
 tags
+.DS_Store

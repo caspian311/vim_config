@@ -29,3 +29,5 @@
 
 [core]
    excludesfile = /Users/mtodd/.gitignore
+[push]
+	default = simple
