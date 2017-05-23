@@ -61,6 +61,7 @@ syntax on
 colorscheme vividchalk
 hi Search guibg=peru guifg=wheat
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = 'node_modules'
 
 let &scrolloff=999-&scrolloff
