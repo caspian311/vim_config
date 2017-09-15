@@ -6,7 +6,7 @@ task :default => [:brew_install, :global_ruby_gems, :create_links]
 
 desc 'Install all brew packages'
 task :brew_install do
-  packages = %( git macvim exuberant-ctags bash-completion bash-git-prompt )
+  packages = %( git macvim ctags bash-completion bash-git-prompt )
 
   puts 'Brew install...'
   `brew install #{packages}`
