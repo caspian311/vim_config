@@ -2,7 +2,7 @@ require 'rake'
 require 'byebug'
 require 'pathname'
 
-task :default => [:brew_install, :global_ruby_gems, :create_links]
+task default: %i[brew_install global_ruby_gems create_links]
 
 desc 'Install all brew packages'
 task :brew_install do
@@ -18,13 +18,13 @@ task :global_ruby_gems do
   gems = %( rubocop )
 
   puts 'Installing gems...'
-  `gem install -g #{gems}`
+  `gem install #{gems}`
   puts 'Done'
 end
 
-task :remove_previous_files => :backup_files do
+task remove_previous_files: :backup_files do
   puts 'Removing old files...'
-  file_mapping.values.each do |full_path_to_file|
+  file_mapping.each_value do |full_path_to_file|
     puts "removing #{full_path_to_file}"
     File.delete full_path_to_file if File.exist? full_path_to_file
   end
@@ -34,7 +34,7 @@ end
 task :backup_files do
   puts "Backing up files to #{backup_dir}..."
   mkdir_p backup_dir
-  file_mapping.values.each do |full_path_to_file|
+  file_mapping.each_value do |full_path_to_file|
     file = Pathname.new(full_path_to_file).basename
     cp_r full_path_to_file, File.join(backup_dir, file), verbose: verbose if File.exist? full_path_to_file
     puts "#{full_path_to_file} did not exist!!!" unless File.exist? full_path_to_file
@@ -43,26 +43,23 @@ task :backup_files do
 end
 
 desc 'Create symlinks of needed files'
-task :create_links => :remove_previous_files do
-  link_up file_mapping
+task create_links: :remove_previous_files do
+  file_mapping.each do |src, dest|
+    symlink src, dest, verbose: verbose
+  end
 end
 
 def file_mapping
-  {
-    File.join(base_path, 'bashrc.symlink') => File.join(home_dir, '.bashrc'),
-    File.join(base_path, 'bash_profile.symlink') => File.join(home_dir, '.bash_profile'),
-    File.join(base_path, 'vimrc.symlink') => File.join(home_dir, '.vimrc'),
-    File.join(base_path, 'git_bash_prompt.symlink') => File.join(home_dir, '.git_bash_prompt.bash'),
-    File.join(base_path, 'gitconfig.symlink') => File.join(home_dir, '.gitconfig'),
-    File.join(base_path, 'gitignore.symlink') => File.join(home_dir, '.gitignore'),
-    File.join(base_path, 'rubocop.symlink') => File.join(home_dir, '.rubocop.yml')
+  file_mapping_data = {
+    'bashrc.symlink' => '.bashrc',
+    'bash_profile.symlink' => '.bash_profile',
+    'vimrc.symlink' => '.vimrc',
+    'git_bash_prompt.symlink' => '.git_bash_prompt.bash',
+    'gitconfig.symlink' => '.gitconfig',
+    'gitignore.symlink' => '.gitignore',
+    'rubocop.symlink' => '.rubocop.yml'
   }
-end
-
-def link_up(links)
-  links.each do |src, dest|
-    symlink src, dest, verbose: verbose
-  end
+  Hash[file_mapping_data.map{|k,v| [File.join(base_path, k), File.join(home_dir, v)]}]
 end
 
 def verbose
