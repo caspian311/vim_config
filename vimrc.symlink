@@ -73,6 +73,7 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 map <Leader>n :NERDTreeToggle<CR>
+map <Leader>f :NERDTreeFind<CR>
 nmap <silent> <BS> :nohlsearch<CR>
 
 if has("gui_macvim")
