@@ -14,6 +14,7 @@ alias latr='ls -latr'
 
 # git
 alias gp='git push origin HEAD -u'
+alias clear_dead_branches="git fetch -p && git br -vv | /usr/bin/grep gone | awk '{print \$1}' | xargs git br -D"
 
 # ruby
 alias bi='bundle install'
