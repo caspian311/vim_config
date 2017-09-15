@@ -50,6 +50,7 @@ end
 def file_mapping
   {
     File.join(base_path, 'bashrc.symlink') => File.join(home_dir, '.bashrc'),
+    File.join(base_path, 'bash_profile.symlink') => File.join(home_dir, '.bash_profile'),
     File.join(base_path, 'vimrc.symlink') => File.join(home_dir, '.vimrc'),
     File.join(base_path, 'git_bash_prompt.symlink') => File.join(home_dir, '.git_bash_prompt.bash'),
     File.join(base_path, 'gitconfig.symlink') => File.join(home_dir, '.gitconfig'),
