@@ -3,10 +3,10 @@
    email = matt.c.todd@gmail.com
 
 [color]
-   branch = auto
-   diff = auto
-   status = auto
-   ui = true
+	 branch = auto
+	 diff = auto
+	 status = auto
+	 ui = true
 [color "branch"]
    current = yellow reverse
    local = yellow
@@ -28,6 +28,12 @@
    br = branch
 
 [core]
-   excludesfile = /Users/mtodd/.gitignore
+	excludesfile = /Users/matt.todd/.gitignore_global
 [push]
 	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
