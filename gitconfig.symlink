@@ -28,7 +28,7 @@
    br = branch
 
 [core]
-	excludesfile = /Users/matt.todd/.gitignore_global
+	excludesfile = /Users/toddm/.gitignore_global
 [push]
 	default = simple
 [difftool "sourcetree"]
